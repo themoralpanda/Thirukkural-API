@@ -35,8 +35,8 @@ var fixTarget = function(req,res,next){
 var searchKural = function(req,res,next){
 	var db = req.db;
 	var collection = db.get('kurals');
-	console.log("Inside the search Kural function")
-	console.log("req.id is "+ req.query.id)
+	
+	
 	var id = parseInt(req.query.id)
 	var section = req.query.section
 	var chapter = req.query.chapter
@@ -48,9 +48,7 @@ var searchKural = function(req,res,next){
 
 		var start = parseInt(req.params.start)
 		var end = parseInt(req.params.end)
-		console.log("start "+start)
-		console.log("end "+end)
-		console.log(req.path)
+		
 		if(req.path.includes("kurals/id")){
 			if(start>0 &&start<=1330 &&end>0 &&end<=1330 && start<=end){
 			collection.find({index: {$gte: start,$lte: end}},
@@ -60,7 +58,7 @@ var searchKural = function(req,res,next){
 				for(var i=0;i< docs.length; i++){
 					delete docs[i]._id
 				}
-				console.log("found kurals. no: "+docs.length)
+				
 				
 				//res.setHeader('Content-Type', 'application/json');
 				res.send(JSON.stringify(docs,null, 3))
@@ -78,7 +76,7 @@ var searchKural = function(req,res,next){
 			for(var i=0;i< docs.length; i++){
 				delete docs[i]._id
 			}
-			console.log("found kurals. no: "+docs.length)
+			
 			
 		//	res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
@@ -96,7 +94,7 @@ var searchKural = function(req,res,next){
 			for(var i=0;i< docs.length; i++){
 				delete docs[i]._id
 			}
-			console.log("found kurals. no: "+docs.length)
+			
 			
 		//	res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
@@ -114,7 +112,7 @@ var searchKural = function(req,res,next){
 			for(var i=0;i< docs.length; i++){
 				delete docs[i]._id
 			}
-			console.log("found kurals. no: "+docs.length)
+			
 			
 		//	res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
@@ -132,8 +130,7 @@ var searchKural = function(req,res,next){
 		collection.find({index: {$eq: id}},'-_id',function(err,docs){
 			if(err)
 				console.log(err)
-			console.log("found kurals. no: "+docs.length)
-			console.log(docs)
+			
 			
 			res.send(JSON.stringify(docs,null, 3))
 		})
@@ -151,7 +148,7 @@ var searchKural = function(req,res,next){
 			for(var i=0;i< docs.length; i++){
 				delete docs[i]._id
 			}
-			console.log("found kurals. no: "+docs.length)
+			
 			
 		//	res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
@@ -160,12 +157,12 @@ var searchKural = function(req,res,next){
 	else if(req.target.localeCompare("chaptergroup")==0){
 		var cg = req.query.chaptergroup;
 		var count = req.query.count;
-		console.log(cg)
+		
 		if(count && count > 0)
 			count = parseInt(count);
 		else
 			count = 0;
-		console.log(count)
+		
 		collection.find(
 			{$or: 
 			[
@@ -179,7 +176,7 @@ var searchKural = function(req,res,next){
 			for(var i=0;i< docs.length; i++){
 				delete docs[i]._id
 			}
-			console.log("found kurals. no: "+docs.length)
+			
 			
 		//	res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
@@ -188,12 +185,12 @@ var searchKural = function(req,res,next){
 	else if(req.target.localeCompare("chapter")==0){
 		var chp = req.query.chapter;
 		var count = req.query.count;
-		console.log(chp)
+		
 		if(count && count>0 && count<=10)
 			count = parseInt(count);
 		else
 			count = 0;
-		console.log(count)
+		
 		collection.find(
 			{$or: 
 			[
@@ -203,11 +200,11 @@ var searchKural = function(req,res,next){
 			 ,{sort : {index : 1},
 			   limit : count},function(err,docs){
 			if(err)
-				console.log(err)
+				
 			for(var i=0;i< docs.length; i++){
 				delete docs[i]._id
 			}
-			console.log("found kurals. no: "+docs.length)
+			
 			
 		//	res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
@@ -247,142 +244,19 @@ var searchKural_today = function(req,res, next){
 	//logic to search for the kural
 	var db = req.db;
 	var collection = db.get('kurals');
-	console.log("Inside the search todays kural function")
+	
 	var random_id = parseInt(new Date().toLocaleDateString().replace(/\//g,''))%1080;
 	collection.find({index: {$eq: random_id}},'-_id',function(err,docs){
 			if(err)
 				console.log(err)
-			console.log("found todays kurals ")
+			
 			
 			res.setHeader('Content-Type', 'application/json');
 			res.send(JSON.stringify(docs,null, 3))
 		})
 	
 }
-// By ChapterGroup
-/**
-* @api {get} /api/kurals From a single Chapter-Group
-* 
-* @apiName GetKuralsByChapterGroup
-* @apiGroup By Chapter-Groups
-*
-* @apiParam {string} chaptergroup Name of the Chapter-Group.
-* @apiVersion 0.1.0
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?chaptergroup=Illaraviyal
-* @apiSampleRequest http://infinitekural.net/api/kurals
-* 
-*/
 
-/**
-* @api {get} /api/kurals From a range of Chapter-Groups
-* 
-* @apiName GetKuralsByChapterGroupRange
-* @apiGroup By Chapter-Groups
-* @apiVersion 0.1.0
-* @apiParam {Number{1-13}} start Chapter-Groups: Starting from
-* @apiParam {Number{1-13}} end Chapter-Groups: up to 
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/chaptergroup/5-12
-* @apiSampleRequest http://infinitekural.net/api/kurals/chaptergroup/:start-:end
-* 
-*/
-
-// By Chapter
-/**
-* @api {get} /api/kurals From a single Chapter
-*  @apiVersion 0.1.0
-* @apiName GetKuralsByChapter
-* @apiGroup By Chapters
-*
-* @apiParam {string} chapter Name of the chapter.
-*
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?chapter=Vaansirappu
-* @apiSampleRequest http://infinitekural.net/api/kurals
-* 
-*/
-
-/**
-* @api {get} /api/kurals From a range of Chapters
-* 
-* @apiName GetKuralsByChapterRange
-* @apiGroup By Chapters
-* @apiVersion 0.1.0
-* @apiParam {Number{1-133}} start Chapters: Starting from
-* @apiParam {Number{1-133}} end Chapters : up to 
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/chapter/65-86
-* @apiSampleRequest http://infinitekural.net/api/kurals/chapter/:start-:end
-* 
-*/
-
-//By Id
-/**
-* @api {get} /api/kurals Get Kurals based on ID
-* 
-* @apiName GetKuralsById
-* @apiGroup By Id
-* @apiVersion 0.1.0
-* @apiParam {Number{1-1330}} id Kural based on ID.
-*
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?id=154
-* @apiSampleRequest http://infinitekural.net/api/kurals
-* 
-*/
-
-/**
-* @api {get} /api/kurals Get a range of kurals based on ID
-* 
-* @apiName GetKuralsByIdRange
-* @apiGroup By Id
-* @apiVersion 0.1.0
-* @apiParam {Number{1-1330}} start ID: Starting from
-* @apiParam {Number{1-1330}} end ID : up to 
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/id/15-18
-* @apiSampleRequest http://infinitekural.net/api/kurals/id/:start-:end
-* 
-*/
-
-
-// By Section
-/**
-* @api {get} /api/kurals From a single Section
-*  @apiVersion 0.1.0
-* @apiName GetKuralsBySection
-* @apiGroup By Section
-*
-* @apiParam {string} section Name of the Section.
-*
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?section=Virtue
-* @apiSampleRequest http://infinitekural.net/api/kurals
-* 
-*/
-
-/**
-* @api {get} /api/kurals From a range of Sections
-* 
-* @apiName GetKuralsBySectionRange
-* @apiGroup By Section
-* @apiVersion 0.1.0
-* @apiParam {Number{1-3}} start Section: Starting from
-* @apiParam {Number{1-3}} end Section: up to 
-*
-* @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/section/1-2
-* @apiSampleRequest http://infinitekural.net/api/kurals/section/:start-:end
-* 
-*/
 
 
 router.get('/kurals',fixTarget,searchKural);

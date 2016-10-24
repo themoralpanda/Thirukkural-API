@@ -85,4 +85,3 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 app.listen(3000); //the port you want to use
-console.log("Express server running");
