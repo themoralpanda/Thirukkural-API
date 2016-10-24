@@ -1,0 +1,36 @@
+{
+  "name": "thirukuralhelps",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "jade": "^1.11.0",
+    "kerberos": "0.0.21",
+    "mongodb": "^2.0",
+    "monk": "^3.1.3",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "supervisor": "^0.11.0"
+  },
+  "main": "app.js",
+  "author": "Vigneshwar Venkatachalpathi",
+  
+  "license": "ISC",
+  "engines": {
+    "node": ">0.10.28"
+  },
+  "keywords": [
+    "thirukural",
+    "api",
+    "kural",
+    "api"
+  ],
+  "devDependencies": {},
+  "description": ""
+}

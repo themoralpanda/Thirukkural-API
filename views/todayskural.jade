@@ -1,0 +1,309 @@
+doctype html
+head
+    title Thirukural helps
+    | &#x9;
+    meta(name='keywords', content='ThirukuralHelps website, Vigneshwar Venkatachalapathi, vickys-wiki, vickys_wiki, Thirukural, THiruvalluvar, Thiruvaluvar')
+    |     
+    meta(name='description', content='Thirukural website, Thikurral website, Thirukural for the day, THirukurral of the day')
+    |     
+    meta(name='author', content='Vigneshwar Venkatachalapathi')
+    |     
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    | &#x9;
+    script(src='https://code.jquery.com/jquery-1.12.3.min.js', integrity='sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')  
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
+    script(src='http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js')  
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+  body(style=";display:block")
+    .container-fluid(style="width:100%;height:100%")
+      .first(style="width:100%;height:100%")
+        .header
+          //
+          .row(class="text-center")
+            img.img-circle(src='/images/pillayar-suli.jpg', style='width:30px;height:20px;')        
+            br
+            br
+            span(style="font-size:large;white-space:nowrap;color:#333333;display:block;")            
+              u
+                இன்றைய குறள்              
+            br
+        .row(style="border-style:none;border-width:2px;display:block;", class="effect6")
+          .col-sm-offset-2.col-sm-6.col-md-6.col-lg-offset-0.col-lg-5(style='display:block;')
+            img.img-rounded.img-responsive(src='/images/thiruvalluvar2.jpg', alt='Thiruvaluvar image.')
+          |                 
+          .col-sm-offset-1.col-sm-6.col-lg-offset-0.col-lg-7.col-md-7.text-center(style='padding-top:2.5%;margin-top:6%;')
+            .row(style="overflow:visible")
+              span(class="kural text-nowrap" style="")
+                //blockquote              
+                each k in kural                                                     
+                  |#{k.firstLine}
+                  br
+                  |#{k.secondLine} 
+            hr
+            .row(style="display:block")
+              ul(class="nav nav-tabs" id="myTab")
+                li(class="active")
+                  a(href="#PapaiyaUrai")
+                    |உரை                  
+                li
+                  a(href="#English")
+                    |English
+                li
+                  a(href="#Meaning")
+                    |Explanation
+
+              div(class="tab-content" style="display:block")
+                each k in kural
+                  div(class="tab-pane fade in active explanation" id="PapaiyaUrai")
+                    .blockquote-reverse
+                      p.text-center
+                        |#{k.definition_MuVa}
+                      footer
+                        மு. வரதராசன்
+                      br
+                      span.text-right
+                        a(id="expand" data-toggle="collapse" )
+                          மேலும் படிக்க 
+                      div(id="FurtherURAIs" class="collapse")
+                        hr
+                        p.text-center
+                          |#{k.definition_Papaiya}
+                        footer
+                          பாப்பையா
+                        hr
+                        p.text-center
+                          |#{k.definition_kalaignar}
+                        footer
+                          மு.கருணாநிதி
+
+                  div(class="tab-pane fade explanation" id="English")
+                    |#{k.english}
+                  div(class="tab-pane fade explanation" id="Meaning")
+                    |#{k.explanation}
+              script.
+                $('#myTab a').click(function (e) {
+                  e.preventDefault();
+                    $(this).tab('show');
+                  })
+                $('#expand').click(function(){
+                  
+                  $(this).text(function(i, old){
+                      return old=="மேலும் படிக்க" ? (function(){$('#FurtherURAIs').collapse('show');return "போதும்" }()) : (function(){$('#FurtherURAIs').collapse('hide');return "மேலும் படிக்க"}())
+                    })
+                  })
+            .row()
+              .col-lg-offset-2
+                a(href="http://infinitekural.net/api")
+                  |Thirukkural API
+                &nbsp&nbsp/&nbsp&nbsp
+                a(href="#widget_container")
+                  |HTML Widget
+                &nbsp&nbsp/&nbsp&nbsp
+                a(href="http://vicky.website")
+                  |Author
+            .row()
+              .col-lg-offset-1
+                |For the complete list of all available thirukkurals, Please visit -
+                a(href="http://thirukkural.gokulnath.com/#/thirukkuralchapters/1/thirukkurals" target="_blank")
+                  |Gokulnath's Kural portal
+                
+
+      hr( class="featurette-divider" )
+
+      div(id ="widget_container" class="panel panel-primary hidden-xs hide-on-small-only" )
+        .panel-heading
+          h6(class="text-center").
+            "Thirukurral of the day" - widget
+        .panel-body
+          .row
+            .well.text-center.
+              Here is a small HTML widget, that you can add in your own website. Share Thiruvalluvar's daily message. 
+          .row
+          
+            ul.nav.nav-tabs(role='tablist')
+              li(role='presentation')
+                a(aria-expanded='false', href='#simple', aria-controls='simple',id='scard', role='tab', data-toggle='tab') Simple Card
+              li#detailed_button.active(role='presentation')
+                a(aria-expanded='true', href='#detailed', aria-controls='detailed', role='tab', data-toggle='tab') Detailed Card
+              
+            // Tab panes
+            .tab-content
+              #simple.tab-pane(role='tabpanel')
+                .panel.panel-default
+                  .panel-body
+                    .row
+                      .col-md-5
+                        br
+                        br
+                        #card1.flip-container(ontouchstart="this.classList.toggle('hover');")
+                          .flipper
+                            .front(style='white-space:nowrap;')
+                              table
+                                tr
+                                  td
+                                    u
+                                      | இன்றைய குறள்
+                                  td
+                                    p.full-circle.
+                                      *
+
+                              p
+                                each k in kural                       
+                                  |#{k.firstLine}
+                                  br
+                                  |#{k.secondLine}
+                            .back(style='')
+                              table
+                                tr
+                                  td
+                                    u
+                                      | உரை
+                                  td
+                                    p.full-circle.
+                                      *
+                              p
+                                each k in kural                                                   
+                                  |#{k.definition_kalaignar}
+                      div(class="col-md-7")
+                        .row
+                          
+                          div(id ="script")
+                            br
+                            h6
+                              span(class="text-center label label-default").
+                                Add the below script, in your website.
+                              
+                            .row
+                              .well
+                                i
+                                  .pre
+                                    &lt;script type="text/javascript" src="http://infinitekural.net/js/ThirukuralWidgetbackup.js"&gt;&lt;/script&gt;
+                            .row
+                              
+                              h6
+                                span(class="label label-info text-large").
+                                  Default size: 400px X 150px
+                                hr
+                                span(class="label label-success text-large").
+                                  Please give the id of the container div as "ThirukkuralWidget"
+                                            
+
+                    
+              #detailed.tab-pane(role='tabpanel')
+                .panel.panel-default
+                  .panel-body
+                    .row
+                      div(class="col-md-5")
+                        .card.medium(style='width:300px;')
+                          .card-image.waves-effect.waves-block.waves-light
+                            img.activator.responsive-img(src='/images/thiruvalluvar2.jpg', style='width:inherit;height:inherit;')
+                          .card-content
+                            span.card-title.activator.grey-text.text-darken-2
+                              | இன்றைய குறள்
+                              i.material-icons.right info
+                            p(style='font-size:0.85em;white-space:nowrap')
+                              each k in kural                                                     
+                                  |#{k.firstLine}
+                                  br
+                                  |#{k.secondLine}
+                            br
+                          .card-reveal
+                            span.card-title.grey-text.text-darken-2
+                              |உரை 
+                              
+                              i.material-icons.right close
+                            p
+                              each k in kural                                                   
+                                  |#{k.definition_kalaignar}
+                            br
+                            br
+                            span.card-title.grey-text.text-darken-2 
+                              |Explanation
+                            p
+                              each k in kural                                                   
+                                  |#{k.explanation}
+                            br
+                            br
+                            a(href="http://infinitekural.net")
+                              |© infinitekural.net
+                      div(class="col-md-7")
+                        .row
+                          
+                          div(id ="script")
+                            br
+                            br
+                            br
+                            br
+                            h5
+                              span(class="text-center label label-default").
+                                Add the below script, in your website.
+                              
+                            .row
+                              .well
+                                i
+                                  .pre
+                                    &lt;script type="text/javascript" src="http://infinitekural.net/js/ThirukkuralWidget.js"&gt;&lt;/script&gt;
+                            .row
+                              
+                              h6
+                                span(class="label label-info text-large").
+                                  Default size: 300px X 400px
+
+
+
+
+
+
+                                                  
+                    
+              
+            
+
+
+
+
+
+
+
+
+
+
+
+                  
+    script(src='/js/script.js')
+    script.
+      $('#scard').trigger('click');
+                      
+                  
+
+
+
+               
+
+
+
+
+
+        
+        
+        
+
+
+        
+
+
+
+
+
+
+     
+
+               
+      
+      
