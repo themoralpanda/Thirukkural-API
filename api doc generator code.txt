@@ -11,8 +11,8 @@ api doc generator code.
 * @apiVersion 0.1.0
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?chaptergroup=Illaraviyal
-* @apiSampleRequest http://infinitekural.net/api/kurals
+*      curl -i http://localhost:3000/api/kurals?chaptergroup=Illaraviyal
+* @apiSampleRequest http://localhost:3000/api/kurals
 * 
 */
 
@@ -26,8 +26,8 @@ api doc generator code.
 * @apiParam {Number{1-13}} end Chapter-Groups: up to 
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/chaptergroup/5-12
-* @apiSampleRequest http://infinitekural.net/api/kurals/chaptergroup/:start-:end
+*      curl -i http://localhost:3000/api/kurals/chaptergroup/5-12
+* @apiSampleRequest http://localhost:3000/api/kurals/chaptergroup/:start-:end
 * 
 */
 
@@ -42,8 +42,8 @@ api doc generator code.
 *
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?chapter=Vaansirappu
-* @apiSampleRequest http://infinitekural.net/api/kurals
+*      curl -i http://localhost:3000/api/kurals?chapter=Vaansirappu
+* @apiSampleRequest http://localhost:3000/api/kurals
 * 
 */
 
@@ -57,8 +57,8 @@ api doc generator code.
 * @apiParam {Number{1-133}} end Chapters : up to 
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/chapter/65-86
-* @apiSampleRequest http://infinitekural.net/api/kurals/chapter/:start-:end
+*      curl -i http://localhost:3000/api/kurals/chapter/65-86
+* @apiSampleRequest http://localhost:3000/api/kurals/chapter/:start-:end
 * 
 */
 
@@ -73,8 +73,8 @@ api doc generator code.
 *
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?id=154
-* @apiSampleRequest http://infinitekural.net/api/kurals
+*      curl -i http://localhost:3000/api/kurals?id=154
+* @apiSampleRequest http://localhost:3000/api/kurals
 * 
 */
 
@@ -88,8 +88,8 @@ api doc generator code.
 * @apiParam {Number{1-1330}} end ID : up to 
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/id/15-18
-* @apiSampleRequest http://infinitekural.net/api/kurals/id/:start-:end
+*      curl -i http://localhost:3000/api/kurals/id/15-18
+* @apiSampleRequest http://localhost:3000/api/kurals/id/:start-:end
 * 
 */
 
@@ -105,8 +105,8 @@ api doc generator code.
 *
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals?section=Virtue
-* @apiSampleRequest http://infinitekural.net/api/kurals
+*      curl -i http://localhost:3000/api/kurals?section=Virtue
+* @apiSampleRequest http://localhost:3000/api/kurals
 * 
 */
 
@@ -120,7 +120,7 @@ api doc generator code.
 * @apiParam {Number{1-3}} end Section: up to 
 *
 * @apiExample {curl} Example Usage:
-*      curl -i http://infinitekural.net/api/kurals/section/1-2
-* @apiSampleRequest http://infinitekural.net/api/kurals/section/:start-:end
+*      curl -i http://localhost:3000/api/kurals/section/1-2
+* @apiSampleRequest http://localhost:3000/api/kurals/section/:start-:end
 * 
 */

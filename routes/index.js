@@ -31,7 +31,7 @@ router.get('/jsonp',function(req,res,next){
 					"explanation": docs[0].definition_Papaiya,
 					"explanation_english": docs[0].explanation,
 					"title_explanation": "உரை",
-					"copyright": "©"+" infinitekural.net"
+					"copyright": "©"+" localhost:3000"
 					} );
 	})
 

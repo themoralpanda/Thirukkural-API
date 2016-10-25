@@ -6,7 +6,7 @@ A Restful API for ancient Tamil Language Literature "The Thirukkural"
 ###### Description:
 A REST API written using NodeJS, ExpressJS, JADE & MongoDB. 
 
-Website: [Thirukkural API](http://infinitekural.net/api)
+Website: [Thirukkural API](http://localhost:3000/api)
 
 ######Local Setup:
 1. Git clone the repository to a local folder.

@@ -52,18 +52,18 @@
 		    script.type = "text/javascript";
 		   script.src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js";
 		    $("head").append(script);			
-			var jsonp_url = "http://infinitekural.net/jsonp?callback=?";
+			var jsonp_url = "http://localhost:3000/jsonp?callback=?";
 			
 			var html = "<div class='card medium' style='width:300px;height:350px'>\
 					    <div class='card-image waves-effect waves-block waves-light'>\
-					      <img class='activator responsive-img' src='http://infinitekural.net/images/thiruvalluvar2.jpg' style='width:inherit;height:inherit;' >\
+					      <img class='activator responsive-img' src='http://localhost:3000/images/thiruvalluvar2.jpg' style='width:inherit;height:inherit;' >\
 					    </div>\
 					    <div class='card-content' style='overflow:hidden'>\
 					      <span class='card-title activator grey-text text-darken-2'><div id='title'></div></span>\
 					      <blockquote>\
 					      	<p style='font-size:0.85em;white-space:nowrap;' id='kural_body'></p>\
 					      </blockquote>\
-					    <a href='http://infinitekural.net' class='valign center' id='copyright1'></a>\
+					    <a href='http://localhost:3000' class='valign center' id='copyright1'></a>\
 					    </div>\
 					    <div class='card-reveal'>\
 					      <span class='card-title grey-text text-darken-2'><div id='urai_title'></div></span>\
@@ -72,7 +72,7 @@
 		  				<span class='card-title '>Explanation</span>\
 		      			<p id='kural_english'>Here is some more information about this product that is only revealed once clicked on.</p>\
 					    \
-					    <a href='http://infinitekural.net' id='copyright'></a>\
+					    <a href='http://localhost:3000' id='copyright'></a>\
 					    </div>				    \
   					</div>"
 
