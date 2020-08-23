@@ -15,4 +15,4 @@ Website: [Thirukkural API](http://localhost:3000/api)
 4. Now run the app (node ./app.js)
  
 
-
+API can be tested live here [Thirukkural API Live] (http://infinitekural.herokuapp.com/api)
